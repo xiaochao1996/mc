@@ -10,10 +10,25 @@
     <script src="js/jquery-1.11.1.js"></script>
     <script src="js/bootstrap.js"></script>
 	<style type="text/css">
+		.font{
+			position: absolute;
+			right: 10px;
+			z-index: 10;
+			top: 2px;
+			width: 30px;
+			height: 30px; 
+			cursor: pointer;
+			background: url(img/search.png) no-repeat;
+			background-size: cover;
+			transition: ease 0.4s;
+		}
+		.font:hover{
+			background: url(img/search1.png) no-repeat;
+			background-size: cover;
+		}
 		.mc{
 			position: absolute; 
 			background: rgba(0,0,0,0.1);
-			height: 100%;
 			width: 100%;
 		}
 	    /*@charset 'utf-8';*/
@@ -202,10 +217,11 @@
 		}
 
 		#footer{
-			padding: 50px 0 30px 0;
+			width: 100%;
+			/*padding: 50px 0 30px 0;*/
    			margin-top: 50px;
     		text-align: center;
-    		background-color: #f9f9f9;
+    		background-color: rgba(0,0,0,0.3);
 		}
 		.footer-nav{
 			display: block;
@@ -213,6 +229,7 @@
 		}
 		.footer-nav li{
 			display: inline-block;
+			font-size: 18px;
 		}
 		.copyright{
 			margin-top: 30px;
@@ -234,6 +251,9 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 		    <div class="container-fluid">
+		    	<div class="navbar-header">
+		    		<a class="navbar-brand" href="#"><img src="img/5.png" style="height: 30px; margin-top: -5px"></a>
+			    </div>
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <form class="navbar-form navbar-left">
 			        <div class="form-group" style="position: relative;">
@@ -250,17 +270,6 @@
 							<img src="img/timg.png" id="img">
 						</div>
 			        </li>
-			      <ul class="nav navbar-nav">
-			        <li class="dropdown">
-			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">信息 <span class="caret"></span></a>
-			          <ul class="dropdown-menu" style="background:rgba(0,255,0,0.5); ">
-			            <li><a href="#">评论</a></li>
-			            <li><a href="#">私信</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">消息设置</a></li>
-			          </ul>
-			        </li>
-			      </ul>
 			      </ul>
 			    </div>
 		    </div>
@@ -304,6 +313,12 @@
 								<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
 								<!-- 留言板 UY END -->
 							</section>
+							<footer id="footer">
+								<div class="container text-align text-center">
+									<ul class=" nav footer-nav" id="footerlist"></ul>
+									<p class="copyright">Designed & Crafted by <a href="" class="color">The Develovers</a> More Templates </p>
+								</div>
+							</footer>
 						</ul>
 					</div>
 				</div>
@@ -311,7 +326,7 @@
 	</section>
 	<script src="js/swiper.min.js"></script>
 	<script type="text/javascript">
-	console.log(localStorage.name)
+	// console.log(localStorage.name)
 		function getParam(id,_url){
 			 var url =_url||window.document.location.href;
 			 var url=url.toString();
@@ -354,6 +369,7 @@
 					// var tid = data.data[i].atid;
 				}
 				$('#nav').html(navbar);
+				$('#footerlist').html(navbar);
 				$('#nav li').eq(tid-1).addClass('active');
 			}
 		});
